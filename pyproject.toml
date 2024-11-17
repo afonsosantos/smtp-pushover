@@ -12,7 +12,7 @@ aiosmtpd = "^1.4.6"
 requests = "^2.32.3"
 
 [tool.poetry.scripts]
-smtp-pushover = "main:main"
+smtp-pushover = "smtp_pushover.main:main"
 
 [build-system]
 requires = ["poetry-core"]

@@ -1,0 +1,9 @@
+services:
+  smtp_listener:
+    image: ghcr.io/afonsosantos/smtp-pushover:latest
+    ports:
+      - "1025:1025"
+    environment:
+      PUSHOVER_USER_KEY: "udmj6efvt5yj5k5k2co99zxgy1779n"
+      PUSHOVER_API_TOKEN: "avxzfr7gzvg8z8skavtva5ijqn31bj"
+    restart: always
