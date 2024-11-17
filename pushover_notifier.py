@@ -1,3 +1,4 @@
+import os
 import requests
 
 class PushoverNotifier:
@@ -7,7 +8,6 @@ class PushoverNotifier:
         self.api_url = "https://api.pushover.net/1/messages.json"
 
     def send_notification(self, subject: str, body: str):
-        """Send a notification with the subject as the title and the body as the message."""
         if not self.user_key or not self.api_token:
             print("Pushover credentials are missing!")
             return

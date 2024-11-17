@@ -1,24 +1,18 @@
-# Use an official Python runtime as a parent image
+# Use an official Python runtime as a base image
 FROM python:3.13-slim
-
-# Install Poetry
-RUN pip install --no-cache-dir poetry
 
 # Set the working directory
 WORKDIR /app
 
-# Copy pyproject.toml and poetry.lock
-COPY pyproject.toml poetry.lock ./
-COPY README.md README.md
-
-# Install dependencies and the package itself
-RUN poetry install
+# Copy requirements.txt and install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the application code
-COPY smtp_pushover/ smtp_pushover/
+COPY . .
 
 # Expose the SMTP port
 EXPOSE 1025
 
-# Run the application using the entry point
-CMD ["poetry", "run", "smtp-pushover"]
+# Run the application
+CMD ["python", "main.py"]

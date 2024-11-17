@@ -8,9 +8,7 @@ This project is an SMTP server that listens for incoming emails and sends notifi
 - Listens for incoming emails on a configurable SMTP port.
 - Extracts the **subject** and **body** of the email.
 - Sends a **Pushover notification** with the email subject as the notification title and the email body as the notification message.
-- Supports both plain text and multipart emails.
-- Fully containerized using Docker.
-- Includes a CI/CD pipeline using GitHub Actions.
+- Fully containerized using Docker for easy deployment.
 
 ---
 
@@ -24,7 +22,6 @@ This project is an SMTP server that listens for incoming emails and sends notifi
 - [Docker](#docker)
   - [Building the Docker Image](#building-the-docker-image)
   - [Running the Docker Container](#running-the-docker-container)
-- [GitHub Actions](#github-actions)
 - [License](#license)
 
 ---
@@ -32,7 +29,6 @@ This project is an SMTP server that listens for incoming emails and sends notifi
 ## Requirements
 
 - Python 3.11+
-- Poetry
 - Docker (optional for containerized deployment)
 
 ---
@@ -42,16 +38,16 @@ This project is an SMTP server that listens for incoming emails and sends notifi
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/afonsosantos/smtp-pushover.git
+git clone https://github.com/your-username/smtp-pushover.git
 cd smtp-pushover
 ```
 
 ### 2. Install Dependencies
 
-Make sure you have **Poetry** installed:
+Make sure you have `pip` installed, then run:
 
 ```bash
-poetry install
+pip install -r requirements.txt
 ```
 
 ### 3. Environment Variables
@@ -72,7 +68,7 @@ These environment variables are required for sending notifications via Pushover.
 To run the application:
 
 ```bash
-poetry run python main.py
+python main.py
 ```
 
 The server will start listening on port `1025` by default.
@@ -81,7 +77,7 @@ The server will start listening on port `1025` by default.
 
 ## Testing
 
-### 1. Sending Test Emails
+### Sending Test Emails
 
 You can use the `swaks` tool to send test emails:
 
@@ -117,55 +113,11 @@ docker-compose up -d
 
 The server will be exposed on port `1025`.
 
-### Pulling the Image from GitHub Container Registry
-
-If you're using the provided GitHub Actions pipeline, you can pull the Docker image from GitHub Container Registry:
-
-```bash
-docker pull ghcr.io/afonsosantos/smtp-pushover:latest
-```
-
----
-
-## GitHub Actions
-
-This project includes a GitHub Actions workflow for:
-
-- Building and pushing a Docker image to GitHub Container Registry on commits to the `main` branch.
-
-### Setting Up GitHub Secrets
-
-To use the GitHub Actions workflow, make sure to set up the following secrets in your GitHub repository:
-
-- **PUSHOVER_USER_KEY**: Your Pushover user key.
-- **PUSHOVER_API_TOKEN**: Your Pushover API token.
-- **GITHUB_TOKEN**: This is automatically available in GitHub Actions.
-
----
-
-## Folder Structure
-
-```
-smtp-pushover/
-├── smtp_pushover/
-│   ├── __init__.py
-│   ├── email_handler.py
-│   ├── pushover_notifier.py
-│   └── main.py
-├── Dockerfile
-├── docker-compose.yml
-├── pyproject.toml
-├── .env
-└── .github/
-    └── workflows/
-        └── ci.yml
-```
-
 ---
 
 ## License
 
-This project is licensed under the [MIT License](https://opensource.org/license/mit).
+This project is licensed under the MIT License.
 
 ---
 
@@ -178,12 +130,3 @@ If you have suggestions for improvements or find any bugs, feel free to create a
 ## Author
 
 - **Afonso Santos** - [https://github.com/afonsosantos](https://github.com/afonsosantos)
-
----
-
-## Acknowledgements
-
-- [Pushover API](https://pushover.net/)
-- [aiosmtpd](https://aiosmtpd.readthedocs.io/)
-- [Poetry](https://python-poetry.org/)
-- [Docker](https://www.docker.com/)
