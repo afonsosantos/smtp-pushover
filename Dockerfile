@@ -15,6 +15,7 @@ RUN poetry install
 
 # Copy the application code
 COPY smtp_pushover/ smtp_pushover/
+COPY README.md README.md
 
 # Expose the SMTP port
 EXPOSE 1025
