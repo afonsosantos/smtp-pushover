@@ -131,7 +131,6 @@ docker pull ghcr.io/afonsosantos/smtp-pushover:latest
 
 This project includes a GitHub Actions workflow for:
 
-- Running tests on every pull request.
 - Building and pushing a Docker image to GitHub Container Registry on commits to the `main` branch.
 
 ### Setting Up GitHub Secrets
