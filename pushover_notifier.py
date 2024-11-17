@@ -1,4 +1,3 @@
-import os
 import requests
 
 class PushoverNotifier:
@@ -17,7 +16,7 @@ class PushoverNotifier:
             "user": self.user_key,
             "title": subject,
             "message": body,
-            "priority": 1,
+            "priority": 0,
         }
 
         response = requests.post(self.api_url, data=data)
