@@ -1,0 +1,9 @@
+services:
+  smtp_listener:
+    build: .
+    ports:
+      - "1025:1025"
+    environment:
+      PUSHOVER_USER_KEY: "your_pushover_user_key"
+      PUSHOVER_API_TOKEN: "your_pushover_api_token"
+    restart: always

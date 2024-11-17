@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "smtp-pushover"
+version = "0.1.0"
+description = ""
+authors = ["Afonso Santos"]
+readme = "README.md"
+packages = [{include = "smtp_pushover"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+aiosmtpd = "^1.4.6"
+requests = "^2.32.3"
+
+[tool.poetry.scripts]
+smtp-pushover = "main:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
