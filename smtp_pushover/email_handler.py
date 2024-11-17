@@ -1,7 +1,7 @@
 import asyncio
 from aiosmtpd.controller import Controller
 from email import message_from_bytes
-from pushover_notifier import PushoverNotifier
+from smtp_pushover.pushover_notifier import PushoverNotifier
 
 class EmailHandler:
     def __init__(self, notifier: PushoverNotifier):
